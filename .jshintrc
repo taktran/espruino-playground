@@ -49,6 +49,7 @@
     "BTN": true,
     "LED1": true,
     "LED2": true,
-    "LED3": true
+    "LED3": true,
+    "A9": true
   }
 }
