@@ -13,5 +13,5 @@ function buttonWatcher(e) {
 setWatch(buttonWatcher, BTN, {
   edge: "falling",
   repeat: true,
-  debounce: 100
+  debounce: 50
 });
