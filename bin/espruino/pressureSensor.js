@@ -14,5 +14,5 @@ function pressureSensorWatcher(e) {
 
 setWatch(pressureSensorWatcher, PRESSURE_SENSOR, {
   repeat: true,
-  debounce: 100
+  debounce: 20
 });
