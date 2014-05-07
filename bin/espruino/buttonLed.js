@@ -1,8 +1,10 @@
+"use strict";
+
 /**
  * Change the LED light when the button is pressed
  */
 
-var timeTillNext = 500;
+var lastPress = 0;
 var leds = [LED1, LED2, LED3];
 var currentLedIndex = 0;
 
@@ -14,7 +16,6 @@ function clearLeds() {
 
 function nextLed() {
   var currentLed = leds[currentLedIndex];
-  var prevLedIndex = currentLedIndex;
 
   clearLeds();
   digitalWrite(currentLed, true);

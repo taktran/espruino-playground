@@ -16,6 +16,10 @@ eg, to watch `bin/espruino/led.js`
 
     grunt watchFile:led
 
+To jshint the files automatically, run
+
+    grunt watch:espruino
+
 ## Testing
 
 Uses [karma](http://karma-runner.github.io/) and [jasmine](http://pivotal.github.io/jasmine/).

@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Rotate the LED lights
  */
@@ -8,7 +10,6 @@ var currentLedIndex = 0;
 
 function nextLed() {
   var currentLed = leds[currentLedIndex];
-  var prevLedIndex = currentLedIndex;
 
   leds.forEach(function(led) {
     digitalWrite(led, false);

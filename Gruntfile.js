@@ -80,6 +80,11 @@ module.exports = function (grunt) {
           '<%= app.publicBase %>/js/**/*.js'
         ]
       },
+      espruino: {
+        src: [
+          espruinoConfig.root + '/*.js'
+        ]
+      },
       test: {
         src: ['test/unit/*.js']
       }
@@ -125,6 +130,14 @@ module.exports = function (grunt) {
       gruntfile: {
         files: 'Gruntfile.js',
         tasks: ['jshint:gruntfile']
+      },
+      espruino: {
+        files: [
+          '<%= jshint.espruino.src %>',
+        ],
+        tasks: [
+          'jshint'
+        ]
       },
       scripts: {
         files: [
