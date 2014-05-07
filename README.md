@@ -20,6 +20,14 @@ To jshint the files automatically, run
 
     grunt watch:espruino
 
+## Deployment
+
+To deploy files to the espruino, run
+
+    grunt deployFile:file
+
+where `file` is the filename (excluding the `.js` extension), stored in `bin/espruino`.
+
 ## Testing
 
 Uses [karma](http://karma-runner.github.io/) and [jasmine](http://pivotal.github.io/jasmine/).

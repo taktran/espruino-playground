@@ -197,7 +197,7 @@ module.exports = function (grunt) {
   });
 
   /**
-   * Deploy code to the espruino.
+   * Watch code file and deploy to the espruino.
    *
    * Configure the espruino grunt task dynamically
    *
@@ -211,6 +211,27 @@ module.exports = function (grunt) {
           file: espruinoConfig.root + '/' + file + '.js',
           save: false,
           watch: true
+        }
+      }
+    });
+
+    grunt.task.run('espruino:main');
+  });
+
+  /**
+   * Deploy and save to the espruino.
+   *
+   * Configure the espruino grunt task dynamically
+   *
+   * @param  {String} file Filename excluding the extension. Looks inside the config base folder for espruino projects.
+   */
+  grunt.registerTask('deployFile', function(file) {
+    grunt.initConfig({
+      espruino: {
+        main: {
+          boardSerial: espruinoConfig.serial,
+          file: espruinoConfig.root + '/' + file + '.js',
+          save: true
         }
       }
     });
