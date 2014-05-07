@@ -6,13 +6,15 @@ Toys are in the `bin/espruino` folder.
 
 ## Development
 
-To run the grunt task to watch file changes and deploy automatically (using [grunt-espruino](https://www.npmjs.org/package/grunt-espruino)), run:
+To run the grunt task to watch file changes and deploy automatically to the espruino (using [grunt-espruino](https://www.npmjs.org/package/grunt-espruino)), run:
 
-    grunt espruino:file
-    # eg,
-    grunt espruino:led
+    grunt watchFile:file
 
-The file needs to be configured in `Gruntfile.js`.
+where `file` is the filename (excluding the `.js` extension), stored in `bin/espruino`.
+
+eg, to watch `bin/espruino/led.js`
+
+    grunt watchFile:led
 
 ## Testing
 

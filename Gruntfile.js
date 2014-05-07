@@ -176,32 +176,33 @@ module.exports = function (grunt) {
       },
     },
 
-    espruino: {
-      led: {
-        boardSerial: espruinoConfig.serial,
-        file: espruinoConfig.root + '/led.js',
-        save: false,
-        watch: true
-      },
-      button: {
-        boardSerial: espruinoConfig.serial,
-        file: espruinoConfig.root + '/button.js',
-        save: false,
-        watch: true
-      },
-      buttonLed: {
-        boardSerial: espruinoConfig.serial,
-        file: espruinoConfig.root + '/buttonLed.js',
-        save: false,
-        watch: true
-      }
-    },
-
     open: {
       all: {
         path: 'http://<%= app.hostname %>:<%= app.port %>'
       }
     }
+  });
+
+  /**
+   * Deploy code to the espruino.
+   *
+   * Configure the espruino grunt task dynamically
+   *
+   * @param  {String} file Filename excluding the extension. Looks inside the config base folder for espruino projects.
+   */
+  grunt.registerTask('watchFile', function(file) {
+    grunt.initConfig({
+      espruino: {
+        main: {
+          boardSerial: espruinoConfig.serial,
+          file: espruinoConfig.root + '/' + file + '.js',
+          save: false,
+          watch: true
+        }
+      }
+    });
+
+    grunt.task.run('espruino:main');
   });
 
   grunt.registerTask('default', [
