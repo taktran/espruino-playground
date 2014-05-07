@@ -4,7 +4,6 @@
  * Change the LED light when the button is pressed
  */
 
-var lastPress = 0;
 var leds = [LED1, LED2, LED3];
 var currentLedIndex = 0;
 
@@ -25,11 +24,11 @@ function nextLed() {
 }
 
 function buttonWatcher(e) {
-  var timeDiff = e.time - lastPress;
-  lastPress = e.time;
-  if (timeDiff > 0.1) {
-    nextLed();
-  }
+  nextLed();
 }
 
-setWatch(buttonWatcher, BTN, {edge:"falling", repeat:true});
+setWatch(buttonWatcher, BTN, {
+  edge: "falling",
+  repeat: true,
+  debounce: 50
+});
