@@ -188,6 +188,12 @@ module.exports = function (grunt) {
         file: espruinoConfig.root + '/button.js',
         save: false,
         watch: true
+      },
+      buttonLed: {
+        boardSerial: espruinoConfig.serial,
+        file: espruinoConfig.root + '/buttonLed.js',
+        save: false,
+        watch: true
       }
     },
 
