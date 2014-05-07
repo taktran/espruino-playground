@@ -2,6 +2,11 @@
 module.exports = function (grunt) {
   'use strict';
 
+  var espruinoConfig = {
+    serial: grunt.option('serial') || '33ffdc05-41573033-41770743',
+    root: 'bin/espruino'
+  };
+
   var appConfig = {
     root: "app",
 
@@ -169,6 +174,21 @@ module.exports = function (grunt) {
         src: '<%= app.js %>/app.js',
         dest: '<%= app.dist %>/js/app.js'
       },
+    },
+
+    espruino: {
+      led: {
+        boardSerial: espruinoConfig.serial,
+        file: espruinoConfig.root + '/led.js',
+        save: false,
+        watch: true
+      },
+      button: {
+        boardSerial: espruinoConfig.serial,
+        file: espruinoConfig.root + '/button.js',
+        save: false,
+        watch: true
+      }
     },
 
     open: {
